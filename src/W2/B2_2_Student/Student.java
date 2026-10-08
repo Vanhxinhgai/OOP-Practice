@@ -1,34 +1,37 @@
 package W2.B2_2_Student;
 
 public class Student {
+    // ===== 1. THUỘC TÍNH: tất cả đều private =====
     private String id;
     private String name;
     private String email;
     private double gpa;
 
-    // 1. Constructor không tham số
+    // ===== 2. CONSTRUCTOR =====
+
+    // (a) Không tham số: gán giá trị mặc định
     public Student() {
         this.id = "UNKNOWN";
-        this.name = "Chua co ten";
+        this.name = "Chưa có tên";
         this.email = "";
         this.gpa = 0.0;
     }
 
-    // 2. Constructor (id, name)
+    // (b) Có tham số id, name
     public Student(String id, String name) {
-        this();
-        setId(id);
+        this();          // lấy giá trị mặc định trước
+        setId(id);       // rồi gán qua setter để được kiểm tra
         setName(name);
     }
 
-    // 3. Constructor đầy đủ tham số
+    // (c) Đầy đủ tham số
     public Student(String id, String name, String email, double gpa) {
-        this(id, name);
+        this(id, name);  // tái sử dụng constructor (b)
         setEmail(email);
         setGpa(gpa);
     }
 
-    // 4. Copy constructor
+    // (d) Copy constructor: tạo bản sao từ một Student khác
     public Student(Student other) {
         this.id = other.id;
         this.name = other.name;
@@ -36,38 +39,38 @@ public class Student {
         this.gpa = other.gpa;
     }
 
-    public String getId() { return id; }
-    public String getName() { return name; }
+    public String getId()    { return id; }
+    public String getName()  { return name; }
     public String getEmail() { return email; }
-    public double getGpa() { return gpa; }
-
+    public double getGpa()   { return gpa; }
     public void setId(String id) {
         if (id == null || id.trim().isEmpty()) {
-            System.out.println("Loi: ID khong duoc rong. Giu nguyen: " + this.id);
+            System.out.println("[LỖI] Mã SV không được để trống. Giữ nguyên: " + this.id);
             return;
         }
-        this.id = id;
+        this.id = id.trim();
     }
 
     public void setName(String name) {
         if (name == null || name.trim().isEmpty()) {
-            System.out.println("Loi: Ten khong duoc rong. Giu nguyen: " + this.name);
+            System.out.println("[LỖI] Tên không được để trống. Giữ nguyên: " + this.name);
             return;
         }
-        this.name = name;
+        this.name = name.trim();
     }
 
     public void setEmail(String email) {
-        if (email == null || email.indexOf('@') <= 0 || email.endsWith("@")) {
-            System.out.println("Loi: Email '" + email + "' khong hop le. Giu nguyen: '" + this.email + "'");
+        if (email == null || !email.contains("@") || !email.contains(".")) {
+            System.out.println("[LỖI] Email '" + email + "' không hợp lệ. Giữ nguyên: '" + this.email + "'");
             return;
         }
-        this.email = email;
+        this.email = email.trim();
     }
 
     public void setGpa(double gpa) {
         if (gpa < 0.0 || gpa > 4.0) {
-            System.out.println("Loi: GPA " + gpa + " phai trong khoang [0.0, 4.0]. Giu nguyen: " + this.gpa);
+            System.out.println("[LỖI] GPA phải từ 0.0 đến 4.0 (nhận được " + gpa
+                    + "). Giữ nguyên: " + this.gpa);
             return;
         }
         this.gpa = gpa;
@@ -75,35 +78,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{id='" + id + "', name='" + name
-                + "', email='" + email + "', gpa=" + gpa + "}";
-    }
-
-    // ===== HÀM MAIN =====
-    public static void main(String[] args) {
-        System.out.println("=== Cach 1: Constructor khong tham so ===");
-        Student s1 = new Student();
-        System.out.println(s1);
-
-        System.out.println("\n=== Cach 2: Constructor (id, name) ===");
-        Student s2 = new Student("SV002", "Tran Thi B");
-        System.out.println(s2);
-
-        System.out.println("\n=== Cach 3: Constructor day du tham so ===");
-        Student s3 = new Student("SV003", "Le Van C", "c@gmail.com", 3.5);
-        System.out.println(s3);
-
-        System.out.println("\n=== Cach 4: Copy constructor ===");
-        Student s4 = new Student(s3);
-        System.out.println(s4);
-
-        System.out.println("\n=== Thu gan GPA khong hop le ===");
-        s3.setGpa(-1.5);
-        s3.setGpa(4.5);
-        System.out.println("GPA cua s3 sau khi gan sai: " + s3.getGpa());
-
-        System.out.println("\n=== Truyen GPA sai tu constructor ===");
-        Student s5 = new Student("SV005", "Pham D", "d@gmail.com", -2.0);
-        System.out.println(s5);
+        return String.format("Student[id=%s, name=%s, email=%s, gpa=%.2f]",
+                id, name, email, gpa);
     }
 }

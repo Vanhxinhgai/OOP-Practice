@@ -1,67 +1,67 @@
 package W2.B2_1_BankAccount;
 
 public class BankAccount {
-    // final: chỉ gán được một lần trong constructor, sau đó không đổi được
-    private final String accountNumber;
-    // private: bên ngoài lớp không truy cập trực tiếp được
-    private double balance;
+    // ===== 1. THUỘC TÍNH =====
+    private final String accountNumber; // final: chỉ gán 1 lần, không đổi được
+    private double balance;             // private: bên ngoài không truy cập trực tiếp
     private String ownerName;
 
-    // Constructor 1: số dư mặc định = 0
+    // ===== 2. CONSTRUCTOR =====
+
+    // Constructor 2 tham số: số dư mặc định = 0
     public BankAccount(String accountNumber, String ownerName) {
-        this(accountNumber, ownerName, 0); // gọi sang constructor 2
+        this(accountNumber, ownerName, 0); // gọi lại constructor 3 tham số
     }
 
-    // Constructor 2: nhận đủ 3 tham số
+    // Constructor 3 tham số: kiểm tra số dư ban đầu
     public BankAccount(String accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;
         if (balance < 0) {
-            System.out.println("Loi: So du ban dau khong duoc am (" + balance + "). Gan mac dinh = 0.");
+            System.out.println("[LỖI] Số dư ban đầu không được âm (" + balance + "). Đặt về 0.");
             this.balance = 0;
         } else {
             this.balance = balance;
         }
     }
 
+    // ===== 3. PHƯƠNG THỨC =====
+
+    // Nạp tiền: số tiền phải > 0
     public void deposit(double amount) {
         if (amount <= 0) {
-            System.out.println("Nap tien that bai: so tien phai > 0 (nhan duoc " + amount + ").");
+            System.out.println("[LỖI] Số tiền nạp phải lớn hơn 0. Giao dịch bị từ chối.");
             return;
         }
         balance += amount;
-        System.out.println("Nap thanh cong " + amount + ". So du moi: " + balance);
+        System.out.println("Nạp thành công " + amount + ". Số dư mới: " + balance);
     }
 
+    // Rút tiền: 0 < amount <= balance, trả về true/false
     public boolean withdraw(double amount) {
         if (amount <= 0) {
-            System.out.println("Rut tien that bai: so tien phai > 0 (nhan duoc " + amount + ").");
+            System.out.println("[LỖI] Số tiền rút phải lớn hơn 0.");
             return false;
         }
         if (amount > balance) {
-            System.out.println("Rut tien that bai: so du khong du (can " + amount + ", co " + balance + ").");
+            System.out.println("[LỖI] Số dư không đủ. Muốn rút " + amount + ", hiện có " + balance);
             return false;
         }
         balance -= amount;
-        System.out.println("Rut thanh cong " + amount + ". So du moi: " + balance);
+        System.out.println("Rút thành công " + amount + ". Số dư còn: " + balance);
         return true;
     }
 
-    // Chỉ có getter, KHÔNG có setBalance → không ai sửa số dư tùy ý được
+    // Chỉ có getter, KHÔNG có setter cho balance
     public double getBalance() {
         return balance;
     }
 
-    // accountNumber chỉ có getter (chỉ đọc)
     public String getAccountNumber() {
         return accountNumber;
     }
 
     public String getOwnerName() {
         return ownerName;
-    }
-
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
     }
 }
