@@ -19,16 +19,9 @@ public class Book {
 
     @Override
     public boolean equals(Object obj) {
-        // Bước 1: cùng một đối tượng thì chắc chắn bằng nhau
         if (this == obj) return true;
-
-        // Bước 2: null hoặc khác lớp thì không bằng
         if (obj == null || getClass() != obj.getClass()) return false;
-
-        // Bước 3: ép kiểu để truy cập thuộc tính của Book
         Book other = (Book) obj;
-
-        // Bước 4: so sánh từng thuộc tính
         return Double.compare(price, other.price) == 0
                 && Objects.equals(title, other.title)
                 && Objects.equals(author, other.author);

@@ -1,13 +1,10 @@
 package W2.B2_9_StaticMethods_StandardIO;
 
 public class Product {
-    // ===== Instance fields: MỖI đối tượng có bản riêng =====
     private String name;
     private double price;
     private int quantity;
     private double discount;
-
-    // ===== Static fields: CẢ HỆ THỐNG dùng chung 1 bản =====
     private static double taxRate = 0.1;
     private static double totalRevenue = 0;
 
@@ -23,7 +20,6 @@ public class Product {
         }
     }
 
-    // ===== Static methods =====
     public static void updateTaxRate(double newRate) {
         if (newRate < 0 || newRate > 1) {
             System.err.println("[LỖI] Thuế phải nằm trong khoảng 0 đến 1.");
@@ -35,8 +31,6 @@ public class Product {
 
     public static double getTaxRate()      { return taxRate; }
     public static double getTotalRevenue() { return totalRevenue; }
-
-    // ===== Instance methods =====
     public double calculateFinalPrice() {
         return (price - discount) * (1 + taxRate);
     }
@@ -48,7 +42,6 @@ public class Product {
         }
         this.discount = newDiscount;
     }
-
     public void sell(int amount) {
         if (amount <= 0) {
             System.err.println("[LỖI] Số lượng mua phải lớn hơn 0.");
@@ -61,7 +54,7 @@ public class Product {
         }
         quantity -= amount;
         double money = amount * calculateFinalPrice();
-        totalRevenue += money;   // cộng vào biến dùng chung
+        totalRevenue += money;
         System.out.printf("[OK] Bán %d %s, thu %.2f. Tồn kho còn %d.%n",
                 amount, name, money, quantity);
     }

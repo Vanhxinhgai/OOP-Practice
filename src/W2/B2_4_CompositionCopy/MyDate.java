@@ -11,7 +11,6 @@ public class MyDate {
         this.year = year;
     }
 
-    // Copy constructor của MyDate: tạo một ngày MỚI giống hệt
     public MyDate(MyDate other) {
         this.day = other.day;
         this.month = other.month;

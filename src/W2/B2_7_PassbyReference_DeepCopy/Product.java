@@ -10,8 +10,6 @@ public class Product {
         this.name = name;
         setPrice(price);
     }
-
-    // Copy constructor: phục vụ deep copy
     public Product(Product other) {
         this.id = other.id;
         this.name = other.name;
@@ -21,9 +19,7 @@ public class Product {
     public String getId()    { return id; }
     public String getName()  { return name; }
     public double getPrice() { return price; }
-
     public void setName(String name) { this.name = name; }
-
     public void setPrice(double price) {
         if (price < 0) {
             System.out.println("[LỖI] Giá không được âm. Giữ nguyên: " + this.price);

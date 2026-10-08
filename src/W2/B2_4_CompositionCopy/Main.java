@@ -9,7 +9,6 @@ public class Main {
         System.out.println("emp1: " + emp1);
         System.out.println("emp2: " + emp2);
 
-        // Sửa ngày sinh của emp1 thành 2/2/2022
         emp1.getBirthday().setDay(2);
         emp1.getBirthday().setMonth(2);
         emp1.getBirthday().setYear(2022);

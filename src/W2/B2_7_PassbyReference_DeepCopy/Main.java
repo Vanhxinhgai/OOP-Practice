@@ -10,8 +10,6 @@ public class Main {
         Inventory kho = new Inventory(arr);
         System.out.println("=== Kho ban đầu ===");
         kho.printItems();
-
-        // Sửa từ bên ngoài qua mảng arr
         arr[0].setPrice(5000);
         arr[1] = new Product("P99", "Hàng giả", 1);
 
@@ -23,7 +21,6 @@ public class Main {
         System.out.println("\n=== Kho sau khi arr bị sửa ===");
         kho.printItems();
 
-        // Thử sửa qua getter
         Product[] got = kho.getItems();
         got[0].setPrice(1);
         got[1] = null;

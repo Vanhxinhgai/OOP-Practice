@@ -23,13 +23,9 @@ public class Main {
 
         System.out.println("\n=== Kịch bản 5: Rút số tiền âm ===");
         System.out.println("Kết quả: " + acc1.withdraw(-100));
-
         System.out.println("\n=== Số dư cuối cùng ===");
         System.out.println(acc1.getOwnerName() + " (" + acc1.getAccountNumber()
                 + "): " + acc1.getBalance());
 
-        // Các dòng sau sẽ BÁO LỖI BIÊN DỊCH nếu bỏ comment:
-        // acc1.balance = 999999999;      // balance là private
-        // acc1.accountNumber = "999";    // accountNumber là private và final
     }
 }

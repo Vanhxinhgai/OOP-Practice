@@ -9,19 +9,10 @@ public class Main {
 
         System.out.println("=== Lịch sử gốc ===");
         acc.printHistory();
-
-        // ================= HACKER =================
         System.out.println("\n=== HACKER tấn công ===");
         Transaction[] stolen = acc.getHistory();
 
-        // Cách 1: sửa trực tiếp amount -> KHÔNG BIÊN DỊCH ĐƯỢC
-        // stolen[0].amount = 9999999;        // lỗi: amount là private (và final)
-        // stolen[0].setAmount(9999999);      // lỗi: không tồn tại setter
-
-        // Cách 2: không sửa được thì thay cả giao dịch bằng giao dịch giả
         stolen[1] = new Transaction("T002", 9999999, "2026-10-08 10:30");
-
-        // Cách 3: xóa dấu vết bằng null
         stolen[0] = null;
 
         System.out.println("Mảng hacker đang cầm sau khi sửa:");
@@ -29,7 +20,6 @@ public class Main {
             System.out.println("  " + t);
         }
 
-        // ================= KIỂM TRA =================
         System.out.println("\n=== Dữ liệu bên trong Account ===");
         acc.printHistory();
 

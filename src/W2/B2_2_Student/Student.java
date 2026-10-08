@@ -1,15 +1,11 @@
 package W2.B2_2_Student;
 
 public class Student {
-    // ===== 1. THUỘC TÍNH: tất cả đều private =====
     private String id;
     private String name;
     private String email;
     private double gpa;
 
-    // ===== 2. CONSTRUCTOR =====
-
-    // (a) Không tham số: gán giá trị mặc định
     public Student() {
         this.id = "UNKNOWN";
         this.name = "Chưa có tên";
@@ -17,21 +13,18 @@ public class Student {
         this.gpa = 0.0;
     }
 
-    // (b) Có tham số id, name
     public Student(String id, String name) {
-        this();          // lấy giá trị mặc định trước
-        setId(id);       // rồi gán qua setter để được kiểm tra
+        this();
+        setId(id);
         setName(name);
     }
 
-    // (c) Đầy đủ tham số
     public Student(String id, String name, String email, double gpa) {
-        this(id, name);  // tái sử dụng constructor (b)
+        this(id, name);
         setEmail(email);
         setGpa(gpa);
     }
 
-    // (d) Copy constructor: tạo bản sao từ một Student khác
     public Student(Student other) {
         this.id = other.id;
         this.name = other.name;

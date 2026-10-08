@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         CentralHub hub = new CentralHub();
 
-        SmartLight l1 = new SmartLight("L01", "Đèn phòng khách", 80);  // Constructor 1
-        SmartLight l2 = new SmartLight("L02", "Đèn ngủ");              // Constructor 2
+        SmartLight l1 = new SmartLight("L01", "Đèn phòng khách", 80);
+        SmartLight l2 = new SmartLight("L02", "Đèn ngủ");
 
         System.out.println("Độ sáng ban đầu của l2: " + l2.getBrightness());
         l2.setBrightness("ECO");
@@ -19,7 +19,6 @@ public class Main {
         printLight(l1);
         printLight(l2);
 
-        // Kiểm tra thêm: dữ liệu sai không làm hỏng trạng thái đèn
         System.out.println("\n=== Thử dữ liệu sai ===");
         l1.setBrightness("TURBO");
         l1.setBrightness(150);

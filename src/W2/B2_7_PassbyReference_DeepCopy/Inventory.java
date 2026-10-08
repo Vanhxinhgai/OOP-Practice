@@ -2,8 +2,6 @@ package W2.B2_7_PassbyReference_DeepCopy;
 
 public class Inventory {
     private Product[] items;
-
-    // Constructor: DEEP COPY dữ liệu đi vào
     public Inventory(Product[] initialItems) {
         if (initialItems == null) {
             this.items = new Product[0];
@@ -16,8 +14,6 @@ public class Inventory {
             }
         }
     }
-
-    // Getter: DEEP COPY dữ liệu đi ra (bài học từ 2.6)
     public Product[] getItems() {
         Product[] copy = new Product[items.length];
         for (int i = 0; i < items.length; i++) {

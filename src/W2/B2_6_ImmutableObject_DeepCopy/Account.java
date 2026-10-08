@@ -32,7 +32,6 @@ public class Account {
         return true;
     }
 
-    // ĐIỂM MẤU CHỐT: trả về BẢN SAO của mảng, không phải mảng gốc
     public Transaction[] getHistory() {
         return Arrays.copyOf(history, count);
     }
