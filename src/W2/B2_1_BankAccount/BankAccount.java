@@ -6,9 +6,8 @@ public class BankAccount {
     private String ownerName;
 
     public BankAccount(String accountNumber, String ownerName) {
-        this(accountNumber, ownerName, 0); // gọi lại constructor 3 tham số
+        this(accountNumber, ownerName, 0);
     }
-
     public BankAccount(String accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;
