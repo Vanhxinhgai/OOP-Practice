@@ -10,7 +10,6 @@ public class Solution {
         }
         return a < 0 ? -a : a; // UCLN luôn không âm
     }
-
     public static void main(String[] args) {
         Solution s = new Solution();
         System.out.println("gcd(12, 18) = " + s.gcd(12, 18));   // 6

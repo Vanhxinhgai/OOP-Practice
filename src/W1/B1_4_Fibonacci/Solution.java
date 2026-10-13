@@ -4,7 +4,6 @@ public class Solution {
     public static long fibonacci(long n) {
         if (n < 0) return -1;
         if (n == 0) return 0;
-
         long a = 0, b = 1; // a = F(i-2), b = F(i-1)
         for (long i = 2; i <= n; i++) {
             // Nếu a + b vượt quá Long.MAX_VALUE thì trả về MAX_VALUE
@@ -17,7 +16,6 @@ public class Solution {
         }
         return b;
     }
-
     public static void main(String[] args) {
         Solution s = new Solution();
         long[] tests = {-5, 0, 1, 2, 10, 50, 92, 93, 100};
