@@ -1,12 +1,6 @@
 package W5.B4_DanhSachSinhVien;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -85,7 +79,6 @@ public class Main {
                 System.out.println(String.format("%-4d %s", dem, sv));
             }
         } catch (EOFException e) {
-            System.out.println("---------------------------------------------------");
             System.out.println("Đã đọc hết tệp. Tổng cộng " + dem + " sinh viên.");
         } catch (ClassNotFoundException e) {
             System.out.println("Lỗi: Không tìm thấy lớp để khôi phục đối tượng từ tệp.");

@@ -3,32 +3,26 @@ package W4.B10_MediaLibrary;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 abstract class MediaItem {
     protected String id;
     protected String name;
-
     public MediaItem(String id, String name) {
         this.id = id;
         this.name = name;
     }
-
     public String getId()   { return id; }
     public String getName() { return name; }
-
     public abstract String getInfo();
 }
 
 class Book extends MediaItem {
     private String author;
     private int pages;
-
     public Book(String id, String name, String author, int pages) {
         super(id, name);
         this.author = author;
         this.pages = pages;
     }
-
     @Override
     public String getInfo() {
         return name + " - " + author + " - " + pages;
@@ -38,19 +32,16 @@ class Book extends MediaItem {
 class DVD extends MediaItem {
     private String director;
     private int duration;
-
     public DVD(String id, String name, String director, int duration) {
         super(id, name);
         this.director = director;
         this.duration = duration;
     }
-
     @Override
     public String getInfo() {
         return name + " - " + director + " - " + duration;
     }
 }
-
 class LibrarySection<T extends MediaItem> {
     private String sectionName;
     private List<T> items = new ArrayList<>();

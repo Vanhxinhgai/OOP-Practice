@@ -1,0 +1,4 @@
+# Cấu hình kết nối hệ thống
+username=vananh
+timeout=30
+maxConnections=10

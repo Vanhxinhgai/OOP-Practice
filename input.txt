@@ -1,0 +1,3 @@
+bài 2: Sao chép tệp văn bản
+viết chương trình sao chép nội dung từ tệp nguồn sang tệp đích theo từng dòng.
+
